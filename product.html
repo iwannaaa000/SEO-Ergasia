@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title id="page-title">Προϊόν | Pure Cosmetics</title>
+<meta name="description" content="" id="meta-description" />
+<link rel="canonical" href="" id="canonical-link" />
+<link rel="stylesheet" href="style.css" />
+<script type="application/ld+json" id="json-ld">
+{}
+</script>
+</head>
+<body>
+<header>
+  <h1>Pure Cosmetics</h1>
+  <nav>
+    <a href="index.html">Αρχική</a>
+    <a href="category.html">Προϊόντα</a>
+  </nav>
+</header>
+
+<main>
+  <h1 id="product-name">Προϊόν</h1>
+  <img id="product-image" src="" alt="" loading="lazy" />
+  <p id="product-description"></p>
+  <p class="price" id="product-price"></p>
+  <p class="trust">100% Φυσικά Συστατικά &nbsp;&bull;&nbsp; Cruelty-Free &nbsp;&bull;&nbsp; Οικολογική Συσκευασία</p>
+</main>
+
+<footer>
+  <p>© 2026 Pure Cosmetics</p>
+</footer>
+
+<script>
+  const products = {
+    "cream-aloe": {
+      name: "Κρέμα Προσώπου Αλόη",
+      image: "images/cream-aloe.jpg",
+      alt: "Κρέμα Προσώπου Αλόη",
+      description: "Η φυσική κρέμα προσώπου με αλόη προσφέρει βαθιά ενυδάτωση, καταπραΰνει το δέρμα και αναζωογονεί την επιδερμίδα σας.",
+      price: "25,00 €",
+      metaDescription: "Φυσική κρέμα προσώπου με αλόη για ενυδάτωση και αναζωογόνηση.",
+      canonical: "https://purecosmetics.com/products/cream-aloe.html",
+      sku: "PNC001",
+      availability: "InStock"
+    },
+    "body-oil-lavender": {
+      name: "Λάδι Σώματος Λεβάντα",
+      image: "images/body-oil-lavender.jpg",
+      alt: "Λάδι Σώματος Λεβάντα",
+      description: "Αρωματικό λάδι σώματος με χαλαρωτική λεβάντα και θρεπτικά έλαια για μεταξένια επιδερμίδα και ευεξία.",
+      price: "18,00 €",
+      metaDescription: "Φυσικό λάδι σώματος με λεβάντα για θρέψη και χαλάρωση.",
+      canonical: "https://purecosmetics.com/products/body-oil-lavender.html",
+      sku: "PNC002",
+      availability: "InStock"
+    },
+    "soap-honey": {
+      name: "Φυσικό Σαπούνι Μέλι",
+      image: "images/soap-honey.jpg",
+      alt: "Φυσικό Σαπούνι Μέλι",
+      description: "Απαλό σαπούνι με μέλι, πλούσιο σε θρεπτικά συστατικά, κατάλληλο για ευαίσθητο και ξηρό δέρμα.",
+      price: "12,00 €",
+      metaDescription: "Φυσικό σαπούνι με μέλι για ήπιο καθαρισμό και θρέψη.",
+      canonical: "https://purecosmetics.com/products/soap-honey.html",
+      sku: "PNC003",
+      availability: "InStock"
+    }
+  };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const productKey = urlParams.get('product') || 'cream-aloe';
+
+  const product = products[productKey];
+
+  if (product) {
+    document.getElementById('product-name').textContent = product.name;
+    const img = document.getElementById('product-image');
+    img.src = product.image;
+    img.alt = product.alt;
+    document.getElementById('product-description').textContent = product.description;
+    document.getElementById('product-price').textContent = `Τιμή: ${product.price}`;
+    document.getElementById('page-title').textContent = `${product.name} | PureNature Cosmetics`;
+    document.getElementById('meta-description').setAttribute('content', product.metaDescription);
+    document.getElementById('canonical-link').setAttribute('href', product.canonical);
+
+    const schema = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": product.name,
+      "image": product.image,
+      "description": product.description,
+      "sku": product.sku,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": product.price.replace(",",".").replace(" €",""),
+        "availability": `https://schema.org/${product.availability}`,
+        "url": product.canonical
+      }
+    };
+    document.getElementById('json-ld').textContent = JSON.stringify(schema);
+  } else {
+    document.getElementById('product-name').textContent = "Προϊόν μη διαθέσιμο";
+    document.getElementById('product-description').textContent = "";
+    document.getElementById('product-price').textContent = "";
+    document.getElementById('product-image').style.display = 'none';
+  }
+</script>
