@@ -102,31 +102,32 @@
   </footer>
 
   <script>
-    function shareOnInstagram() {
-      window.open(
-        `https://www.instagram.com/?url=${encodeURIComponent(window.location.href)}`,
-        'instagram-share',
-        'width=600,height=400'
-      );
+
+    function trackEvent(category, action, label, value = null) {
+      if (typeof gtag === 'function') {
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label,
+          'value': value
+        });
+      }
     }
 
-    function shareOnTwitter() {
-      window.open(
-        `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`,
-        'twitter-share',
-        'width=600,height=400'
-      );
-    }
+    document.querySelector('.btn-cta')?.addEventListener('click', function() {
+      trackEvent('button', 'click', 'view_products');
+    });
 
-     function shareOnFacebook() {
-      window.setTimeout(() => {
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
-          'facebook-share',
-          'width=600,height=400'
-        );
-      }, 500);
-    }
+    document.querySelector('.instagram')?.addEventListener('click', function() {
+      trackEvent('social', 'click', 'instagram');
+    });
+
+    document.querySelector('.twitter')?.addEventListener('click', function() {
+      trackEvent('social', 'click', 'twitter');
+    });
+
+    document.querySelector('.facebook')?.addEventListener('click', function() {
+      trackEvent('social', 'click', 'facebook');
+    });
   </script>
 </body>
 </html>
