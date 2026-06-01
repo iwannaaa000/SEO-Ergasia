@@ -5,15 +5,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pure Cosmetics | Φυσικά Καλλυντικά για Υγεία & Ομορφιά</title>
+  <title>Pure Cosmetics | Φυσικά Καλλυντικά για Υγεία & Ομορφία</title>
   <meta name="description"
     content="Pure Cosmetics – Φυσικά και βιολογικά καλλυντικά για την φροντίδα του δέρματός σας με σεβασμό στη φύση." />
   <link rel="canonical" href="https://purecosmetics.com/index.html" />
+
+  <meta property="og:title" content="Pure Cosmetics | Φυσικά Καλλυντικά για Υγεία & Ομορφία" />
+  <meta property="og:description" content="Pure Cosmetics – Φυσικά και βιολογικά καλλυντικά για την φροντίδα του δέρματός σας με σεβασμό στη φύση." />
+  <meta property="og:url" content="https://purecosmetics.com/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://purecosmetics.com/images/og-image.jpg" />
+  <meta property="og:image:alt" content="Pure Cosmetics - Φυσικά Καλλυντικά" />
+  <meta property="og:site_name" content="Pure Cosmetics" />
+  <meta property="og:locale" content="el_GR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pure Cosmetics | Φυσικά Καλλυντικά για Υγεία & Ομορφία" />
+  <meta name="twitter:description" content="Pure Cosmetics – Φυσικά και βιολογικά καλλυντικά για την φροντίδα του δέρματός σας με σεβασμό στη φύση." />
+  <meta name="twitter:image" content="https://purecosmetics.com/images/twitter-card-image.jpg" />
+  <meta name="twitter:image:alt" content="Pure Cosmetics - Φυσικά Καλλυντικά" />
+  <meta name="twitter:site" content="@PureCosmeticsGR" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
   <header class="navContainer">
     <svg class="logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#99AD7A" stroke="#99AD7A"
       stroke-width="0.00048000000000000007">
@@ -42,11 +58,22 @@
         <a href="category.html">Προϊόντα</a>
       </nav>
     </div>
-
   </header>
 
+  <div class="share-buttons">
+    <a href="https://www.instagram.com/purecosmeticsgr" target="_blank" class="instagram" title="Follow us on Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpurecosmetics.com%2Findex.html&text=Pure%20Cosmetics%20-%20Φυσικά%20Καλλυντικά" target="_blank" class="twitter" title="Share on Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fpurecosmetics.com%2Findex.html&media=https%3A%2F%2Fpurecosmetics.com%2Fimages%2Fog-image.jpg&description=Pure%20Cosmetics%20-%20Φυσικά%20Καλλυντικά" target="_blank" class="pinterest" title="Share on Pinterest">
+      <i class="fab fa-pinterest-p"></i>
+    </a>
+  </div>
+
   <main>
-    <section label="Καλωσόρισμα">
+    <section aria-label="Καλωσόρισμα">
       <h1>Η Φύση στην Υπηρεσία της Ομορφιάς</h1>
       <h2>Φυσικά καλλυντικά με σεβασμό στο περιβάλλον</h2>
       <p>Στην Pure Cosmetics δημιουργούμε αγνά προϊόντα φροντίδας δέρματος με βιολογικά συστατικά, φιλικά προς την υγεία
@@ -54,7 +81,7 @@
       <a href="category.html" class="btn-cta" role="button">Δείτε τα προϊόντα μας</a>
     </section>
 
-    <section label="Γιατί να μας επιλέξετε" class="features">
+    <section aria-label="Γιατί να μας επιλέξετε" class="features">
       <h2>Γιατί να επιλέξετε Pure Cosmetics;</h2>
       <ul>
         <li>100% Φυσικά & Βιολογικά Συστατικά</li>
@@ -64,7 +91,7 @@
       </ul>
     </section>
 
-    <section label="Εταιρική Υπευθυνότητα" class="responsibility">
+    <section aria-label="Εταιρική Υπευθυνότητα" class="responsibility">
       <h2>Η δέσμευσή μας</h2>
       <p>Δεσμευόμαστε για βιώσιμη παραγωγή, σεβασμό στη φύση και διαφάνεια σε όλα τα στάδια της διαδικασίας.</p>
     </section>
@@ -73,6 +100,33 @@
   <footer>
     <p>© 2026 Pure Cosmetics</p>
   </footer>
-</body>
 
+  <script>
+    function shareOnInstagram() {
+      window.open(
+        `https://www.instagram.com/?url=${encodeURIComponent(window.location.href)}`,
+        'instagram-share',
+        'width=600,height=400'
+      );
+    }
+
+    function shareOnTwitter() {
+      window.open(
+        `https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`,
+        'twitter-share',
+        'width=600,height=400'
+      );
+    }
+
+    function shareOnPinterest() {
+      window.setTimeout(() => {
+        window.open(
+          `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&media=${encodeURIComponent('https://purecosmetics.com/images/og-image.jpg')}&description=${encodeURIComponent(document.title)}`,
+          'pinterest-share',
+          'width=600,height=400'
+        );
+      }, 500);
+    }
+  </script>
+</body>
 </html>
