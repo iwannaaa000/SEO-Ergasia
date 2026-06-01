@@ -67,8 +67,8 @@
     <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpurecosmetics.com%2Findex.html&text=Pure%20Cosmetics%20-%20Φυσικά%20Καλλυντικά" target="_blank" class="twitter" title="Share on Twitter">
       <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fpurecosmetics.com%2Findex.html&media=https%3A%2F%2Fpurecosmetics.com%2Fimages%2Fog-image.jpg&description=Pure%20Cosmetics%20-%20Φυσικά%20Καλλυντικά" target="_blank" class="pinterest" title="Share on Pinterest">
-      <i class="fab fa-pinterest-p"></i>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpurecosmetics.com%2Findex.html" target="_blank" class="facebook" title="Share on Facebook">
+      <i class="fab fa-facebook-f"></i>
     </a>
   </div>
 
@@ -118,11 +118,11 @@
       );
     }
 
-    function shareOnPinterest() {
+     function shareOnFacebook() {
       window.setTimeout(() => {
         window.open(
-          `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&media=${encodeURIComponent('https://purecosmetics.com/images/og-image.jpg')}&description=${encodeURIComponent(document.title)}`,
-          'pinterest-share',
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
+          'facebook-share',
           'width=600,height=400'
         );
       }, 500);
